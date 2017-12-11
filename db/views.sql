@@ -11,7 +11,7 @@ create or replace view all_adress_info(employeeid, city, state, country, postalc
 	(select EmployeeID, City, Region, Country, PostalCode  from northwind.Employees);
 
 
-create or replace view all_territories (employeeid, territory) as
+create or replace view all_territories (employeeid, city) as
 	(select employeeid, city from company.branches natural join company.employees)
 	union
 	(select EmployeeID, TerritoryDescription from northwind.EmployeeTerritories natural join northwind.Territories);
